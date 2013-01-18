@@ -1,0 +1,15 @@
+{
+	"name": "fft-windowing",
+	"version": "0.1.0",
+	"description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
+	"main": "plotter.js",
+	"author": "Richard Eoin <richardeoin@gmail.com>",
+	"dependencies": {
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/richardeoin/nodejs-fft-windowing"
+	},
+	"license": "MIT",
+	"engine": "node >= 0.8.14"
+}
