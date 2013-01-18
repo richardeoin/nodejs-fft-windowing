@@ -2,7 +2,7 @@
 	"name": "fft-windowing",
 	"version": "0.1.0",
 	"description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
-	"main": "plotter.js",
+	"main": "windowing.js",
 	"author": "Richard Eoin <richardeoin@gmail.com>",
 	"devDependencies": {
 		"plotter":	"0.1.x",
