@@ -14,8 +14,6 @@ for (r in _.range(100)) {
 for (win in windowing) { /* for each windowing function */
 	/* Apply the windowing function to a deep copy of the black array */
 	data[win] = windowing[win](blank.slice(0));
-	
-	console.log(win);
 }
 
 /* Plot the result */

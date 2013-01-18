@@ -6,7 +6,7 @@
 Math.sinc = function(n) { return Math.sin(Math.PI*n)/(Math.PI*n); }
 Math.bessi0 = function(x) { /* Evaluate modified Bessel function In(x) and n=0. */
 	var ax = Math.abs(x);
-	
+
 	if (ax < 3.75) {
 		y = x / 3.75; y = y * y;
 		return 1.0 + y*(3.5156229+y*(3.0899424+y*(1.2067492+y*(0.2659732+y*(0.360768e-1+y*0.45813e-2)))));
@@ -32,7 +32,7 @@ var windows = {
 			},
 	tukey:		function (n, points, alpha) {
 				if (!alpha) { alpha = 0.5; }
-	
+
 				if (n < 0.5*alpha*(points-1)) {
 					return 0.5*(1+(Math.cos(Math.PI*((2*n/(alpha*(points-1)))-1))));
 				} else if (n < (1-(0.5*alpha))*(points-1)) {
@@ -80,13 +80,13 @@ var windows = {
  */
 function window(data_array, windowing_function, alpha) {
 	var datapoints = data_array.length;
-	
+
 	/* For each item in the array */
 	for (n in data_array) {
 		/* Apply the windowing function */
 		data_array[n] *= windowing_function(n, datapoints, alpha);
 	}
-	
+
 	return data_array;
 }
 
