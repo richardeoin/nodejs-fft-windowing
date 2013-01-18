@@ -81,7 +81,9 @@ var windows = {
 function window(data_array, windowing_function, alpha) {
 	var datapoints = data_array.length;
 	
+	/* For each item in the array */
 	for (n in data_array) {
+		/* Apply the windowing function */
 		data_array[n] *= windowing_function(n, datapoints, alpha);
 	}
 	
