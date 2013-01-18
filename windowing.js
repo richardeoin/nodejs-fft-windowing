@@ -26,9 +26,9 @@ var windows = {
 	hamming:	function (n, points) { return 0.54 - 0.46*Math.cos(2*Math.PI*n/(points-1)); },
 	cosine:		function (n, points) { return Math.sin(Math.PI*n/(points-1)); },
 	lanczos:	function (n, points) { return Math.sinc((2*n/(points-1))-1); },
-	gaussian:	function (n, points, sigma) {
-				if (!sigma) { sigma = 0.4; }
-				return Math.pow(Math.E, -0.5*Math.pow((n-(points-1)/2)/(sigma*(points-1)/2), 2));
+	gaussian:	function (n, points, alpha) {
+				if (!alpha) { alpha = 0.4; }
+				return Math.pow(Math.E, -0.5*Math.pow((n-(points-1)/2)/(alpha*(points-1)/2), 2));
 			},
 	tukey:		function (n, points, alpha) {
 				if (!alpha) { alpha = 0.5; }
@@ -74,6 +74,7 @@ var windows = {
 					+ 0.032*Math.cos(8*Math.PI*n/(points-1));
 			},
 }
+
 /**
  * Applies a Windowing Function to an array.
  */
@@ -89,6 +90,7 @@ function window(data_array, windowing_function, alpha) {
 
 /* -------- Exports -------- */
 
+/* Adds a function for each window to the module exports */
 for (win in windows) {
-	exports[win] = windows[win];
+	exports[win] = function (array, alpha) { return window(array, windows[win], alpha); };
 }
