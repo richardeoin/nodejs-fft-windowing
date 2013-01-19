@@ -1,6 +1,6 @@
-**nodejs-fft-windowing** applies a [windowing function](http://en.wikipedia.org/wiki/Window_function) to an array of data, making it ready to be [FFT](http://en.wikipedia.org/wiki/Fast_Fourier_transform)'d.
+**nodejs-fft-windowing** is a [node.js](http://nodejs.org/) module that applies a [windowing function](http://en.wikipedia.org/wiki/Window_function) to an array of data, making it ready to be [FFT](http://en.wikipedia.org/wiki/Fast_Fourier_transform)'d.
 
-[This article](http://www.ni.com/white-paper/4844/en) by [National Instruments](http://uk.ni.com/) gives a good introduction to why windowing function are useful.
+[This article](http://www.ni.com/white-paper/4844/en) by [National Instruments](http://uk.ni.com/) gives a good introduction to why windowing functions are useful.
 
 ## Installation ##
 
@@ -23,6 +23,8 @@ var windowed = windowing.hann(raw);
 
 ```
 
+The resulting `windowed` variable is then ready to be fed through a Fast Fourier Transform. A good [node.js](http://nodejs.org/) module to use would be [this](https://npmjs.org/package/fft) one.
+
 The following windows are available:
 
 - [hann](http://en.wikipedia.org/wiki/Window_function#Hann_.28Hanning.29_window)
@@ -39,12 +41,12 @@ The following windows are available:
 - [blackman_nuttall](http://en.wikipedia.org/wiki/Window_function#Blackman.E2.80.93Nuttall_window)
 - [flat_top](http://en.wikipedia.org/wiki/Window_function#Flat_top_window)
 
-The following windows accept an extra parameter, `alpha`:
+The following windows can also accept an extra parameter, `alpha`:
 
-- [gaussian](http://en.wikipedia.org/wiki/Window_function#Gaussian_windows) default _0.4_
-- [tukey](http://en.wikipedia.org/wiki/Window_function#Tukey_window) default _0.5_
-- [blackman](http://en.wikipedia.org/wiki/Window_function#Blackman_windows) default _0.16_
-- [kaiser](http://en.wikipedia.org/wiki/Window_function#Kaiser_windows) default _0.3_
+- [gaussian](http://en.wikipedia.org/wiki/Window_function#Gaussian_windows) defaults to 0.4
+- [tukey](http://en.wikipedia.org/wiki/Window_function#Tukey_window) defaults to 0.5
+- [blackman](http://en.wikipedia.org/wiki/Window_function#Blackman_windows) defaults to 0.16
+- [kaiser](http://en.wikipedia.org/wiki/Window_function#Kaiser_windows) defaults 0.3
 
 You would use it like this:
 
