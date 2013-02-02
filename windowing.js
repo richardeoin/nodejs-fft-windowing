@@ -92,7 +92,16 @@ function window(data_array, windowing_function, alpha) {
 
 /* -------- Exports -------- */
 
-/* Adds a function for each window to the module exports */
+/**
+ * A helper to actually create window functions.
+ */
+var create_window_function = function(win) {
+	return function (array, alpha) { return window(array, windows[win], alpha); };
+}
+
+/**
+ * Adds a function for each window to the module exports.
+ */
 for (win in windows) {
-	exports[win] = function (array, alpha) { return window(array, windows[win], alpha); };
+	exports[win] = module.exports[win] = create_window_function(win);
 }

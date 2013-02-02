@@ -11,10 +11,10 @@ for (r in _.range(100)) {
 	blank.push(1);
 }
 
-for (win in windowing) { /* for each windowing function */
-	var name = win.replace(/\_/g, ' ');
+for (window in windowing) { /* for each windowing function */
+	var name = window.replace(/\_/g, ' ');
 	/* Apply the windowing function to a deep copy of the black array */
-	data[name] = windowing[win](blank.slice(0));
+	data[name] = windowing[window](blank.slice(0));
 }
 
 /* Plot the result */

@@ -1,6 +1,6 @@
 {
 	"name": "fft-windowing",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
 	"main": "windowing.js",
 	"author": "Richard Eoin <richardeoin@gmail.com>",
