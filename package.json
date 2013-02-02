@@ -5,7 +5,7 @@
 	"main": "windowing.js",
 	"author": "Richard Eoin <richardeoin@gmail.com>",
 	"devDependencies": {
-		"plotter":	"0.1.x",
+		"plotter":	"0.3.x",
 		"underscore":	"1.4.x"
 	},
 	"keywords": [
