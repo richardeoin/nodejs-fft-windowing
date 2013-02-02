@@ -102,6 +102,6 @@ var create_window_function = function(win) {
 /**
  * Adds a function for each window to the module exports.
  */
-for (win in windows) {
+for (var win in windows) {
 	exports[win] = module.exports[win] = create_window_function(win);
 }
