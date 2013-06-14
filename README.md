@@ -59,6 +59,10 @@ var windowed = windowing.kaiser(raw, 0.5);
 
 ```
 
-## LICENSE ###
+## Tests ##
+
+Run `node tests/fft-windowing-tests.js`. This should generate a file called `fft-windowing.pdf` in the root directory which shows what happens if you apply each windowing function to a uniform array.
+
+## LICENSE ##
 
 MIT
