@@ -1,38 +1,54 @@
 {
-	"name": "fft-windowing",
-	"version": "0.1.4",
-	"description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
-	"main": "windowing.js",
-	"author": "Richard Eoin <richardeoin@gmail.com>",
-	"devDependencies": {
-		"plotter":	"0.3.x",
-		"underscore":	"1.4.x"
-	},
-	"scripts": {
-		"test": "node tests/fft-windowing-tests.js"	
-	},
-	"keywords": [
-		"fft",
-		"fourier",
-		"windowing",
-		"hann",
-		"hamming",
-		"cosine",
-		"lanczos",
-		"gaussian",
-		"tukey",
-		"blackman",
-		"exact_blackman",
-		"kaiser",
-		"nuttall",
-		"blackman_harris",
-		"blackman_nuttall",
-		"flat_top"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/richardeoin/nodejs-fft-windowing"
-	},
-	"license": "MIT",
-	"engine": "node >= 0.9.4"
+  "name": "fft-windowing",
+  "version": "0.1.4",
+  "description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
+  "main": "windowing.js",
+  "author": "Richard Eoin <richardeoin@gmail.com>",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "plotter": "0.3.x",
+    "typescript": "^4.5.2",
+    "underscore": "1.4.x"
+  },
+  "scripts": {
+    "test": "node tests/fft-windowing-tests.js"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "parser": "@typescript-eslint/parser"
+    }
+  },
+  "keywords": [
+    "fft",
+    "fourier",
+    "windowing",
+    "hann",
+    "hamming",
+    "cosine",
+    "lanczos",
+    "gaussian",
+    "tukey",
+    "blackman",
+    "exact_blackman",
+    "kaiser",
+    "nuttall",
+    "blackman_harris",
+    "blackman_nuttall",
+    "flat_top"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richardeoin/nodejs-fft-windowing"
+  },
+  "license": "MIT",
+  "engine": "node >= 0.9.4"
 }
