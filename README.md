@@ -41,12 +41,12 @@ The following windows are available:
 - [blackman_harris](http://en.wikipedia.org/wiki/Window_function#Blackman.E2.80.93Harris_window)
 - [blackman_nuttall](http://en.wikipedia.org/wiki/Window_function#Blackman.E2.80.93Nuttall_window)
 - [flat_top](http://en.wikipedia.org/wiki/Window_function#Flat_top_window)
+- [blackman](http://en.wikipedia.org/wiki/Window_function#Blackman_windows)
 
 The following windows can also accept an extra parameter, `alpha`:
 
 - [gaussian](http://en.wikipedia.org/wiki/Window_function#Gaussian_windows) defaults to 0.4
 - [tukey](http://en.wikipedia.org/wiki/Window_function#Tukey_window) defaults to 0.5
-- [blackman](http://en.wikipedia.org/wiki/Window_function#Blackman_windows) defaults to 0.16
 - [kaiser](http://en.wikipedia.org/wiki/Window_function#Kaiser_windows) defaults 0.3
 
 You would use it like this:

@@ -151,7 +151,7 @@ const windows = {
 const applyWindowFunction = (
   data_array: number[],
   windowing_function: Function,
-  alpha?: number
+  alpha: number
 ) => {
   const datapoints = data_array.length;
 
