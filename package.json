@@ -1,6 +1,6 @@
 {
   "name": "fft-windowing-ts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
   "author": "Richard Eoin <richardeoin@gmail.com>",
   "contributors": [
