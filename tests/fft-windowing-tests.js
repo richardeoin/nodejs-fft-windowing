@@ -1,4 +1,4 @@
-import * as windowing from "../.build/windowing.js";
+import * as windowing from "../dist/windowing.js";
 
 var data = {};
 

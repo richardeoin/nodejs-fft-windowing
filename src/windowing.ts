@@ -66,20 +66,13 @@ const windows = {
 
   lanczos: (n: number, points: number) => sinc((2 * n) / (points - 1) - 1),
 
-  gaussian: (n: number, points: number, alpha: number) => {
-    if (!alpha) {
-      alpha = 0.4;
-    }
+  gaussian: (n: number, points: number, alpha: number = 0.4) => {
     return Math.pow(
       Math.E,
       -0.5 * Math.pow((n - (points - 1) / 2) / ((alpha * (points - 1)) / 2), 2)
     );
   },
-  tukey: (n: number, points: number, alpha: number) => {
-    if (!alpha) {
-      alpha = 0.5;
-    }
-
+  tukey: (n: number, points: number, alpha: number = 0.5) => {
     if (n < 0.5 * alpha * (points - 1)) {
       return (
         0.5 * (1 + Math.cos(Math.PI * ((2 * n) / (alpha * (points - 1)) - 1)))
@@ -96,10 +89,7 @@ const windows = {
       );
     }
   },
-  blackman: (n: number, points: number, alpha: number) => {
-    if (!alpha) {
-      alpha = 0.16;
-    }
+  blackman: (n: number, points: number) => {
     return (
       0.42 -
       0.5 * Math.cos((2 * Math.PI * n) / (points - 1)) +
@@ -113,10 +103,7 @@ const windows = {
       0.0782793 * Math.cos((4 * Math.PI * n) / (points - 1))
     );
   },
-  kaiser: (n: number, points: number, alpha: number) => {
-    if (!alpha) {
-      alpha = 3;
-    }
+  kaiser: (n: number, points: number, alpha: number = 3) => {
     return (
       bessi0(
         Math.PI * alpha * Math.sqrt(1 - Math.pow((2 * n) / (points - 1) - 1, 2))
@@ -164,7 +151,7 @@ const windows = {
 const applyWindowFunction = (
   data_array: number[],
   windowing_function: Function,
-  alpha: number
+  alpha?: number
 ) => {
   const datapoints = data_array.length;
 
