@@ -1,8 +1,9 @@
 {
   "name": "fft-windowing-ts",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
   "author": "Richard Eoin <richardeoin@gmail.com>",
+  "main": "dist/windowing",
   "contributors": [
     {
       "name": "Khem Sattaur",
@@ -21,8 +22,14 @@
   },
   "scripts": {
     "test": "node tests/fft-windowing-tests.js",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w -p tsconfig.json",
+    "clean": "rm -rf dist"
   },
+  "files": [
+    "dist/windowing.js",
+    "dist/windowing.d.ts"
+  ],
   "eslintConfig": {
     "root": true,
     "env": {
