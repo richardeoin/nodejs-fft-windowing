@@ -1,8 +1,15 @@
 {
-  "name": "fft-windowing",
+  "name": "fft-windowing-ts",
   "version": "0.2.0",
   "description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
   "author": "Richard Eoin <richardeoin@gmail.com>",
+  "contributors": [
+    {
+      "name": "Khem Sattaur",
+      "email": "khem@eleven-i.com",
+      "url": "https://eleven-i.com"
+    }
+  ],
   "type": "module",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
@@ -49,7 +56,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/richardeoin/nodejs-fft-windowing"
+    "url": "https://github.com/eleven-i/nodejs-fft-windowing"
   },
   "license": "MIT"
 }
