@@ -1,4 +1,4 @@
-**nodejs-fft-windowing** is a [node.js](http://nodejs.org/) module that applies a [windowing function](http://en.wikipedia.org/wiki/Window_function) to an array of data, making it ready to be [FFT](http://en.wikipedia.org/wiki/Fast_Fourier_transform)'d.
+**fft-windowing-ts** is a [node.js](http://nodejs.org/) module that applies a [windowing function](http://en.wikipedia.org/wiki/Window_function) to an array of data, making it ready to be [FFT](http://en.wikipedia.org/wiki/Fast_Fourier_transform)'d.
 
 This package is a fork of Richard Eoin <richardeoin@gmail.com>'s package https://github.com/richardeoin/nodejs-fft-windowing
 
@@ -17,11 +17,11 @@ yarn add fft-windowing
 The [Hann (Hanning) window](http://en.wikipedia.org/wiki/Window_function#Hann_.28Hanning.29_window) is a good general-purpose window. You would use it like so:
 
 ```javascript
-var windowing = require("fft-windowing");
+import { hann } from "fft-windowing-ts";
 
-var raw = [2, 2, 0, -2, -2, 0, 2, 2];
+const raw = [2, 2, 0, -2, -2, 0, 2, 2];
 
-var windowed = windowing.hann(raw);
+const windowed = hann(raw);
 ```
 
 The resulting `windowed` variable is then ready to be fed through a Fast Fourier Transform. A good [node.js](http://nodejs.org/) module to use would be [this](https://npmjs.org/package/fft) one.
@@ -52,11 +52,11 @@ The following windows can also accept an extra parameter, `alpha`:
 You would use it like this:
 
 ```javascript
-var windowing = require("fft-windowing");
+import windowing from "fft-windowing";
 
-var raw = [2, 2, 0, -2, -2, 0, 2, 2];
+const raw = [2, 2, 0, -2, -2, 0, 2, 2];
 
-var windowed = windowing.kaiser(raw, 0.5);
+const windowed = kaiser(raw, 0.5);
 ```
 
 ## Tests
