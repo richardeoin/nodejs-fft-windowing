@@ -1,5 +1,3 @@
-/* Richard Meadows 2013 */
-
 type WindowFunctionName =
   | "hann"
   | "hamming"
@@ -15,16 +13,13 @@ type WindowFunctionName =
   | "blackman_nuttall"
   | "flat_top";
 
-const sinc = function (n: number) {
-  return Math.sin(Math.PI * n) / (Math.PI * n);
-};
-const bessi0 = function (x: number) {
-  /* Evaluate modified Bessel function In(x) and n=0. */
-  var ax = Math.abs(x);
+const sinc = (n: number) => Math.sin(Math.PI * n) / (Math.PI * n);
 
+const bessi0 = (x: number) => {
+  /* Evaluate modified Bessel function In(x) and n=0. */
+  const ax = Math.abs(x);
   if (ax < 3.75) {
-    let y = x / 3.75;
-    y = y * y;
+    const y = (x / 3.75) * (x / 3.75);
     return (
       1.0 +
       y *
@@ -36,7 +31,7 @@ const bessi0 = function (x: number) {
                   y * (0.2659732 + y * (0.360768e-1 + y * 0.45813e-2)))))
     );
   } else {
-    let y = 3.75 / ax;
+    const y = 3.75 / ax;
     return (
       (Math.exp(ax) / Math.sqrt(ax)) *
       (0.39894228 +
@@ -61,19 +56,17 @@ const bessi0 = function (x: number) {
  * Windowing functions.
  */
 const windows = {
-  hann: function (n: number, points: number) {
-    return 0.5 - 0.5 * Math.cos((2 * Math.PI * n) / (points - 1));
-  },
-  hamming: function (n: number, points: number) {
-    return 0.54 - 0.46 * Math.cos((2 * Math.PI * n) / (points - 1));
-  },
-  cosine: function (n: number, points: number) {
-    return Math.sin((Math.PI * n) / (points - 1));
-  },
-  lanczos: function (n: number, points: number) {
-    return sinc((2 * n) / (points - 1) - 1);
-  },
-  gaussian: function (n: number, points: number, alpha: number) {
+  hann: (n: number, points: number) =>
+    0.5 - 0.5 * Math.cos((2 * Math.PI * n) / (points - 1)),
+
+  hamming: (n: number, points: number) =>
+    0.54 - 0.46 * Math.cos((2 * Math.PI * n) / (points - 1)),
+
+  cosine: (n: number, points: number) => Math.sin((Math.PI * n) / (points - 1)),
+
+  lanczos: (n: number, points: number) => sinc((2 * n) / (points - 1) - 1),
+
+  gaussian: (n: number, points: number, alpha: number) => {
     if (!alpha) {
       alpha = 0.4;
     }
@@ -82,7 +75,7 @@ const windows = {
       -0.5 * Math.pow((n - (points - 1) / 2) / ((alpha * (points - 1)) / 2), 2)
     );
   },
-  tukey: function (n: number, points: number, alpha: number) {
+  tukey: (n: number, points: number, alpha: number) => {
     if (!alpha) {
       alpha = 0.5;
     }
@@ -103,7 +96,7 @@ const windows = {
       );
     }
   },
-  blackman: function (n: number, points: number, alpha: number) {
+  blackman: (n: number, points: number, alpha: number) => {
     if (!alpha) {
       alpha = 0.16;
     }
@@ -113,14 +106,14 @@ const windows = {
       0.08 * Math.cos((4 * Math.PI * n) / (points - 1))
     );
   },
-  exact_blackman: function (n: number, points: number) {
+  exact_blackman: (n: number, points: number) => {
     return (
       0.4243801 -
       0.4973406 * Math.cos((2 * Math.PI * n) / (points - 1)) +
       0.0782793 * Math.cos((4 * Math.PI * n) / (points - 1))
     );
   },
-  kaiser: function (n: number, points: number, alpha: number) {
+  kaiser: (n: number, points: number, alpha: number) => {
     if (!alpha) {
       alpha = 3;
     }
@@ -130,7 +123,7 @@ const windows = {
       ) / bessi0(Math.PI * alpha)
     );
   },
-  nuttall: function (n: number, points: number) {
+  nuttall: (n: number, points: number) => {
     return (
       0.355768 -
       0.487396 * Math.cos((2 * Math.PI * n) / (points - 1)) +
@@ -138,7 +131,7 @@ const windows = {
       0.012604 * Math.cos((6 * Math.PI * n) / (points - 1))
     );
   },
-  blackman_harris: function (n: number, points: number) {
+  blackman_harris: (n: number, points: number) => {
     return (
       0.35875 -
       0.48829 * Math.cos((2 * Math.PI * n) / (points - 1)) +
@@ -146,7 +139,7 @@ const windows = {
       0.01168 * Math.cos((6 * Math.PI * n) / (points - 1))
     );
   },
-  blackman_nuttall: function (n: number, points: number) {
+  blackman_nuttall: (n: number, points: number) => {
     return (
       0.3635819 -
       0.3635819 * Math.cos((2 * Math.PI * n) / (points - 1)) +
@@ -154,7 +147,7 @@ const windows = {
       0.0106411 * Math.cos((6 * Math.PI * n) / (points - 1))
     );
   },
-  flat_top: function (n: number, points: number) {
+  flat_top: (n: number, points: number) => {
     return (
       1 -
       1.93 * Math.cos((2 * Math.PI * n) / (points - 1)) +
@@ -168,12 +161,12 @@ const windows = {
 /**
  * Applies a Windowing Function to an array.
  */
-function applyWindowFunction(
+const applyWindowFunction = (
   data_array: number[],
   windowing_function: Function,
   alpha: number
-) {
-  var datapoints = data_array.length;
+) => {
+  const datapoints = data_array.length;
 
   /* For each item in the array */
   for (let n = 0; n < datapoints; ++n) {
@@ -182,22 +175,45 @@ function applyWindowFunction(
   }
 
   return data_array;
-}
+};
 
 /* -------- Exports -------- */
 
 /**
  * A helper to actually create window functions.
  */
-var create_window_function = function (win: WindowFunctionName) {
-  return function (array: number[], alpha: number) {
-    return applyWindowFunction(array, windows[win], alpha);
-  };
-};
-
+const create_window_function =
+  (win: WindowFunctionName) => (array: number[], alpha: number) =>
+    applyWindowFunction(array, windows[win], alpha);
 /**
  * Adds a function for each window to the module exports.
  */
-for (const win in windows) {
-  exports[win] = module.exports[win] = create_window_function(win);
-}
+const hann = create_window_function("hann");
+const hamming = create_window_function("hamming");
+const cosine = create_window_function("cosine");
+const lanczos = create_window_function("lanczos");
+const gaussian = create_window_function("gaussian");
+const tukey = create_window_function("tukey");
+const blackman = create_window_function("blackman");
+const exact_blackman = create_window_function("exact_blackman");
+const kaiser = create_window_function("kaiser");
+const nuttall = create_window_function("nuttall");
+const blackman_harris = create_window_function("blackman_harris");
+const blackman_nuttall = create_window_function("blackman_nuttall");
+const flat_top = create_window_function("flat_top");
+
+export {
+  hann,
+  hamming,
+  cosine,
+  lanczos,
+  gaussian,
+  tukey,
+  blackman,
+  exact_blackman,
+  kaiser,
+  nuttall,
+  blackman_harris,
+  blackman_nuttall,
+  flat_top,
+};

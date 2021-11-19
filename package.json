@@ -1,18 +1,20 @@
 {
   "name": "fft-windowing",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Applies a windowing function to an array of data, making it ready to be FFT'd.",
-  "main": "windowing.js",
   "author": "Richard Eoin <richardeoin@gmail.com>",
+  "type": "module",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
-    "plotter": "0.3.x",
-    "typescript": "^4.5.2",
-    "underscore": "1.4.x"
+    "eslint": "^8.2.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.5.2"
   },
   "scripts": {
-    "test": "node tests/fft-windowing-tests.js"
+    "test": "node tests/fft-windowing-tests.js",
+    "build": "tsc -p tsconfig.json"
   },
   "eslintConfig": {
     "root": true,
@@ -49,6 +51,5 @@
     "type": "git",
     "url": "https://github.com/richardeoin/nodejs-fft-windowing"
   },
-  "license": "MIT",
-  "engine": "node >= 0.9.4"
+  "license": "MIT"
 }
