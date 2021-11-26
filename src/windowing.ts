@@ -151,7 +151,7 @@ const windows = {
 const applyWindowFunction = (
   data_array: number[],
   windowing_function: Function,
-  alpha: number
+  alpha?: number
 ) => {
   const datapoints = data_array.length;
 
@@ -170,7 +170,7 @@ const applyWindowFunction = (
  * A helper to actually create window functions.
  */
 const create_window_function =
-  (win: WindowFunctionName) => (array: number[], alpha: number) =>
+  (win: WindowFunctionName) => (array: number[], alpha?: number) =>
     applyWindowFunction(array, windows[win], alpha);
 /**
  * Adds a function for each window to the module exports.

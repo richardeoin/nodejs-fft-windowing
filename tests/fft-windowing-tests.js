@@ -14,6 +14,6 @@ for (const window in windowing) {
   data[name] = windowing[window](blank.slice(0));
 }
 
-console.log("Plotting result to fft-windowing.pdf..");
+console.log("Results:");
 
 console.dir(data);
