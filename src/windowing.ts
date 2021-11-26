@@ -203,4 +203,5 @@ export {
   blackman_harris,
   blackman_nuttall,
   flat_top,
+  WindowFunctionName,
 };
